@@ -13,7 +13,7 @@ See also: https://github.com/bcgov/schemaspy
 ## Sample Docker build command
 
 ```
-docker build -t schemaspy https://github.com/cywolf/schemaspy-docker.git
+docker build -t schemaspy https://github.com/marcocali/schemaspy-docker.git
 ```
 
 ## Sample MySQL Usage
@@ -34,9 +34,9 @@ docker run -ti --rm --name schemaspy \
 docker run -ti --rm --name schemaspy \
 	-p 8080:8080 \
 	-e DATABASE_TYPE=pgsql \
-	-e DATABASE_HOST=postgres -e DATABASE_NAME=mydatabase \
-	-e DATABASE_USER=postgres -e DATABASE_PASSWORD=mysecretpassword \
-	--link postgres \
+	-e DATABASE_HOST=db-api-financial-markets -e DATABASE_NAME=api_financial_markets \
+	-e DATABASE_USER=api_financial_markets -e DATABASE_PASSWORD=password \
+	--link db-api-financial-markets --network api-financial-markets_default \
 	schemaspy
 ```
 
